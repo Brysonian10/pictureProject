@@ -99,6 +99,19 @@ public class Picture extends SimplePicture
     }
   }
   
+  //sets all of the red pixels to 0, no more red pixels in the image
+  public void zeroRed()
+  {
+	  Pixel [] [] pixels = this.getPixels2D();
+	  for (Pixel [] row: pixels)
+	  {
+		  for (Pixel pix: row)
+		  {
+			  pix.setRed(0);
+		  }
+	  }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
