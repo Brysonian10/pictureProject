@@ -1,4 +1,5 @@
 package pixLab.classes;
+import java.awt.Color;
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -35,6 +36,16 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  public static void testChromakey()
+  {
+	  Picture source = new Picture("camaro(small).jpg");
+	  Picture background = new Picture("oculusQuest.jpg");
+	  source.explore();
+	  background.explore();
+	  source.chromakey(background, Color.WHITE);
+	  source.explore();
+  }
+  
   public static void testMirrorVerticalR2L()
   {
     Picture beach = new Picture("beach.jpg");
@@ -42,6 +53,8 @@ public class PictureTester
     beach.mirrorVerticalR2L();
     beach.explore();
   }
+  
+  
   
   
   /** Method to test mirrorTemple */
@@ -76,16 +89,17 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testZeroRed();
+   // testZeroBlue();
+   // testZeroRed();
+    testChromakey();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
-    testMirrorVerticalR2L();
+    //testMirrorVertical();
+   // testMirrorVerticalR2L();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();

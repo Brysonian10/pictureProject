@@ -203,6 +203,75 @@ public class Picture extends SimplePicture
       }
     }   
   }
+  
+  public void chromakey(Picture replacement, Color changeColor)
+  {
+	  Pixel[][] mainPixels = this.getPixels2D();
+	  Pixel[][] replacementPixels = replacement.getPixels2D();
+	  
+	  for (int row = 0; row < mainPixels.length; row++)
+	  {
+		  for (int col = 0; col < mainPixels[0].length; col++)
+		  {
+			  if (mainPixels[row][col].colorDistance(changeColor) < 10)
+			  {
+				  mainPixels[row][col].setColor(replacementPixels[row][col].getColor());
+			  }
+		  }
+	  }
+  }
+  
+  public void shiftLeftRight(int amount)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel[][] copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int width = pixels[0].length;
+	  
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  shiftedValue = (col + amount) % width;
+			  copied [row][col].setColor(pixels[row][shiftedValue].getColor());
+		  }
+	  }
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  pixels[row][col].setColor(copied[row][col].getColor());
+		  }
+	  }
+  }
+  
+  public void shiftUpDown(int amount)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel[][] copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int height = pixels.length;
+	  
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  shiftedValue = (row + amount) % height;
+			  copied [row][col].setColor(pixels[shiftedValue][col].getColor());
+		  }
+	  }
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  pixels[row][col].setColor(copied[row][col].getColor());
+		  }
+	  }
+  }
 
   /** Method to create a collage of several pictures */
   public void createCollage()
