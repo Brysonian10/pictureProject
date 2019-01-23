@@ -72,6 +72,19 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testSteganography()
+  {
+	  Picture source = new Picture("spacePicSmall.jpg");
+	  
+	  Picture message = new Picture("spookyBlackAndWhite.jpg");
+	  source.explore();
+	  message.explore();
+	//  source.hidePicture(message);
+	  source.explore();
+	  source.revealPicture();
+	  source.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -95,7 +108,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  testGlitch();
+	  //testGlitch();
+	  testSteganography();
     //testZeroBlue();
    // testZeroRed();
     //testChromakey();
