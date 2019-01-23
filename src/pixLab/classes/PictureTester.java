@@ -30,10 +30,10 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
-    caterpillar.explore();
-    caterpillar.mirrorVertical();
-    caterpillar.explore();
+    Picture space = new Picture("spacePicSmall.jpg");
+    space.explore();
+    space.mirrorVertical();
+    space.explore();
   }
   
   public static void testChromakey()
@@ -54,7 +54,13 @@ public class PictureTester
     beach.explore();
   }
   
-  
+  public static void testGlitch()
+  {
+	  Picture source = new Picture("llamaStanding.jpg");
+	  Picture background = new Picture("spacePicSmall.jpg");
+	  source.chromakey(background, Color.GREEN);
+	  background.glitch();
+  }
   
   
   /** Method to test mirrorTemple */
@@ -89,9 +95,10 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-   // testZeroBlue();
+	  testGlitch();
+    //testZeroBlue();
    // testZeroRed();
-    testChromakey();
+    //testChromakey();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
