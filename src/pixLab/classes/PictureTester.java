@@ -76,10 +76,10 @@ public class PictureTester
   {
 	  Picture source = new Picture("spacePicSmall.jpg");
 	  
-	  Picture message = new Picture("spookyBlackAndWhite.jpg");
+	  Picture message = new Picture("trippy.jpg");
 	  source.explore();
 	  message.explore();
-	//  source.hidePicture(message);
+	  source.hidePicture(message);
 	  source.explore();
 	  source.revealPicture();
 	  source.explore();
