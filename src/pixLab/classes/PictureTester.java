@@ -59,7 +59,9 @@ public class PictureTester
 	  Picture source = new Picture("llamaStanding.jpg");
 	  Picture background = new Picture("spacePicSmall.jpg");
 	  source.chromakey(background, Color.GREEN);
+	  background.shiftLeftRight(300);
 	  background.glitch();
+	  
   }
   
   
@@ -108,8 +110,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  //testGlitch();
-	  testSteganography();
+	 testGlitch();
+	  //testSteganography();
     //testZeroBlue();
    // testZeroRed();
     //testChromakey();
